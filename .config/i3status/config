@@ -1,0 +1,65 @@
+general {
+        output_format = "i3bar"
+        colors = false
+        markup = pango
+        interval = 1
+        color_good = '#2f343f'
+        color_degraded = '#ebcb8b'
+        color_bad = '#ba5e57'
+}
+
+order += "load"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "disk /home"
+order += "wireless wlp1s0"
+order += "volume master"
+order += "battery 0"
+order += "tztime local"
+
+load {
+        format = "  %5min LOAD "
+}
+
+cpu_temperature 0 {
+        format = "  %degrees°C "
+        path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+disk "/" {
+        format = "  %free "
+}
+
+disk "/home" {
+        format = "  %free "
+}
+
+wireless wlp1s0 {
+        format_up = "  %essid "
+        format_down = "  "
+}
+
+volume master {
+        format = "  %volume "
+        format_muted = "  "
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+battery 0 {
+        last_full_capacity = true
+        format = "  %status %percentage "
+        format_down = "ERR"
+        status_chr = "CHR"
+        status_bat = "BAT"
+        status_unk = "UNK"
+        status_full = "CHR"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime local {
+	format =" %time "
+	format_time = " %a %-d %b %H:%M "
+}
