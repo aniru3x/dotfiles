@@ -16,6 +16,7 @@ order += "wireless wlp1s0"
 order += "volume master"
 order += "battery 0"
 order += "tztime local"
+order += "read_file ARCH"
 
 load {
         format = "  %5min LOAD "
@@ -36,7 +37,7 @@ disk "/home" {
 
 wireless wlp1s0 {
         format_up = "  %essid "
-        format_down = "  "
+        format_down = "   "
 }
 
 volume master {
@@ -60,6 +61,11 @@ battery 0 {
 }
 
 tztime local {
-	format =" %time "
-	format_time = " %a %-d %b %H:%M "
+        format =" %time "
+        format_time = " %a %-d %b %H:%M"
+}
+
+read_file ARCH {
+        format = " %content "
+        path = /home/aniru3x/.config/ARCH
 }

@@ -17,7 +17,7 @@ mouse_autohide = true
 scrollback_lines = 333
 #search_wrap = true
 #urgent_on_bell = true
-#hyperlinks = false
+hyperlinks = true
 
 # $BROWSER is used by default if set, with xdg-open as a fallback
 browser = xdg-open
