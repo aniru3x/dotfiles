@@ -440,4 +440,7 @@ fi
 
 export STARDICT_DATA_DIR=$XDG_DATA_HOME
 
+# Alias
+alias 'qemu-lol'='qemu-system-x86_64 -m 2048 -boot d -enable-kvm -smp 8 -net nic -net user -hda'
+
 set -o vi
